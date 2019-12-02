@@ -3,8 +3,8 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 
-const char* ssid = "QQ";
-const char* password = quangquyen12345";
+const char* ssid = "YourWiFi";
+const char* password = "Passowrd";
 
   IPAddress ip(192,168,1,200);   
   IPAddress gateway(192,168,1,1);   
