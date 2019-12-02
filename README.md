@@ -2,9 +2,9 @@
 
 Change WiFi information here:
 
-const char* ssid = "QQ";
+const char* ssid = "YourWiFi";
 
-const char* password = quangquyen12345";
+const char* password = "Passowrd";
 
 Android app: https://play.google.com/store/apps/details?id=com.myhomedns
 
