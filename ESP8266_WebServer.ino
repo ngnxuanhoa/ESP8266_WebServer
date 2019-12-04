@@ -26,49 +26,86 @@ void handleRoot() {
 
   String cmd;     
       cmd += "<!DOCTYPE HTML>\r\n";
-      cmd += "<html>\r\n";
-      //cmd += "<header><title>ESP8266 Webserver</title><h1>\"ESP8266 Web Server Control\"</h1></header>";
-      
+      cmd += "<html>\r\n";    
       cmd += "<head>";
       cmd += "<meta http-equiv='refresh' content='5'/>";
-      //cmd +=("<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}");
-      //cmd +=(".button { background-color: #195B6A; border: none; color: white; padding: 16px 40px;");
-      //cmd +=("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
-      //cmd +=(".button2 {background-color: #77878A;}</style>");
       cmd += "</head>";
       
       if(device1){
         cmd +=("<br/>Device0ON");
-        //cmd +=("<p><button class=\"button\">ON</button></p>");
+        cmd +=("<form menthod='get'><input class='button' type='submit' name='Device1' value='ON' ></form>");
       }
       else{
         cmd +=("<br/>Device0OFF");
-        //cmd +=("<p><button class=\"button button2\">OFF</button></p>");
+        cmd +=("<form menthod='get'><input class='button' type='submit' name='Device1' value='OFF' ></form>");
       }
       
       if(device2){
         cmd +=("<br/>Device1ON");
+        cmd +=("<form menthod='get'><input class='button' type='submit' name='Device2' value='ON' ></form>");
       }
       else{
         cmd +=("<br/>Device1OFF");
+        cmd +=("<form menthod='get'><input class='button' type='submit' name='Device2' value='OFF' ></form>");
       }
            
        if(device3){
         cmd +=("<br/>Device2ON");
+        cmd +=("<form menthod='get'><input class='button' type='submit' name='Device3' value='ON' ></form>");
       }
       else{
         cmd +=("<br/>Device2OFF");
+        cmd +=("<form menthod='get'><input class='button' type='submit' name='Device3' value='OFF' ></form>");
       }
       
       if(device4){
         cmd +=("<br/>Device3ON");
+        cmd +=("<form menthod='get'><input class='button' type='submit' name='Device4' value='ON' ></form>");
       }
       else{
         cmd +=("<br/>Device3OFF");
+        cmd +=("<form menthod='get'><input class='button' type='submit' name='Device4' value='OFF' ></form>");
       }
            
       cmd += "<html>\r\n";
       server.send(200, "text/html", cmd);
+  
+if(server.hasArg("Device1")){ // kiểm tra trong chuỗi request từ client gửi về server có chứa dữ liệu với tên Device1 không
+  String dev1 = server.arg("Device1"); // Lấy dữ liệu của Device1.
+if(dev1 == "OFF") // nếu dữ liệu chứa bằng "OFF"
+  digitalWrite(output1, HIGH); //Bật thiết bị 1
+  device1 = true;
+else
+  digitalWrite(output1, LOW); 
+  device1 = false;
+}
+if(server.hasArg("Device2")){ 
+  String dev2 = server.arg("Device2");
+if(dev2 == "OFF") 
+  digitalWrite(output2, HIGH); 
+  device2 = true;
+else
+  digitalWrite(output2, LOW); 
+  device2 = false;
+}
+if(server.hasArg("Device3")){ 
+  String dev3 = server.arg("Device3");
+if(dev3 == "OFF") 
+  digitalWrite(output3, HIGH); 
+  device3 = true;
+else
+  digitalWrite(output3, LOW); 
+  device3 = false;
+}
+if(server.hasArg("Device4")){ 
+  String dev4 = server.arg("Device4");
+if(dev4 == "OFF") 
+  digitalWrite(output4, HIGH); 
+  device4 = true;
+else
+  digitalWrite(output4, LOW); 
+  device4 = false;
+}  
 }
 
 void handleNotFound(){
