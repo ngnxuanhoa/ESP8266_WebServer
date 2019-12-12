@@ -72,40 +72,40 @@ void handleRoot() {
   
 if(server.hasArg("Device1")){ // kiểm tra trong chuỗi request từ client gửi về server có chứa dữ liệu với tên Device1 không
   String dev1 = server.arg("Device1"); // Lấy dữ liệu của Device1.
-if(dev1 == "OFF"){ // nếu dữ liệu chứa bằng "OFF"
-  digitalWrite(output1, HIGH); //Bật thiết bị 1
-  device1 = true;}
-else{
-  digitalWrite(output1, LOW); 
-  device1 = false;}
-}
+  if(dev1 == "OFF"){ // nếu dữ liệu chứa bằng "OFF"
+    digitalWrite(output1, LOW); //Bật thiết bị 1
+    device1 = true;}
+  else{
+    digitalWrite(output1, HIGH); 
+    device1 = false;}
+  }
 if(server.hasArg("Device2")){ 
   String dev2 = server.arg("Device2");
-if(dev2 == "OFF"){ 
-  digitalWrite(output2, HIGH); 
-  device2 = true;}
-else{
-  digitalWrite(output2, LOW); 
-  device2 = false;}
-}
+  if(dev2 == "OFF"){ 
+    digitalWrite(output2, LOW); 
+    device2 = true;}
+  else{
+    digitalWrite(output2, HIGH); 
+    device2 = false;}
+  }
 if(server.hasArg("Device3")){ 
   String dev3 = server.arg("Device3");
-if(dev3 == "OFF"){ 
-  digitalWrite(output3, HIGH); 
-  device3 = true;}
-else{
-  digitalWrite(output3, LOW); 
-  device3 = false;}
-}
+  if(dev3 == "OFF"){ 
+    digitalWrite(output3, LOW); 
+    device3 = true;}
+  else{
+    digitalWrite(output3, HIGH); 
+    device3 = false;}
+  }
 if(server.hasArg("Device4")){ 
   String dev4 = server.arg("Device4");
-if(dev4 == "OFF"){ 
-  digitalWrite(output4, HIGH); 
-  device4 = true;}
-else{
-  digitalWrite(output4, LOW); 
-  device4 = false;}
-}   
+  if(dev4 == "OFF"){ 
+    digitalWrite(output4, LOW); 
+    device4 = true;}
+  else{
+    digitalWrite(output4, HIGH); 
+    device4 = false;}
+  }   
 }
 
 void handleNotFound(){
